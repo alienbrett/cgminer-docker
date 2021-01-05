@@ -1,0 +1,21 @@
+version: "3"
+services:
+
+  cgminer:
+    build: alienbrett/cgminer-docker:latest
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - POOL_HOST 
+      - POOL_USER
+      - POOL_PASS
+    devices:
+      - '/dev/ttyUSB0:/dev/ttyUSB0'
+      - '/dev/ttyUSB1:/dev/ttyUSB1'
+      - '/dev/ttyUSB2:/dev/ttyUSB2'
+      - '/dev/ttyUSB3:/dev/ttyUSB3'
+      - '/dev/ttyUSB4:/dev/ttyUSB4'
+      - '/dev/ttyUSB5:/dev/ttyUSB5'
+      - '/dev/ttyUSB6:/dev/ttyUSB6'
